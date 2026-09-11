@@ -73,6 +73,17 @@ export function Footer() {
           <p>
             © {year} {profile.name}. All rights reserved.
           </p>
+          <p className="flex items-center gap-1.5">
+            Developed by{" "}
+            <a
+              href="https://maherukhislam.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-stone-400 underline decoration-stone-600/70 underline-offset-4 transition-colors hover:text-amber-300 hover:decoration-amber-400/60"
+            >
+              Maherukh Islam
+            </a>
+          </p>
           <p>Dhaka, Bangladesh · Built with dedication</p>
         </div>
       </div>

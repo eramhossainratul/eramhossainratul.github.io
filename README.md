@@ -18,6 +18,10 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-amber?style=flat-square" alt="License" /></a>
 </p>
 
+<p align="center">
+  <sub>Developed by <a href="https://maherukhislam.github.io">Maherukh Islam</a></sub>
+</p>
+
 ---
 
 ## 🌟 Overview
@@ -195,3 +199,7 @@ https://<your-github-username>.github.io/<repository-name>/
 ## 📄 License
 
 This project is licensed under the terms of the [MIT License](LICENSE).
+
+---
+
+Developed by [Maherukh Islam](https://maherukhislam.github.io).
