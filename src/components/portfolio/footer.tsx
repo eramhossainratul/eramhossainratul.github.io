@@ -29,7 +29,7 @@ export function Footer() {
               </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-stone-400">
-              {profile.roles.join(" · ")} — committed to disciplined service,
+              {profile.roles.join(" · ")}, committed to disciplined service,
               environmental awareness and youth leadership in Dhaka.
             </p>
             <p className="mt-3 inline-flex items-center gap-2 text-xs text-stone-500">

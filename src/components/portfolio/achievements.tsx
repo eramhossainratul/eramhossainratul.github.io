@@ -34,7 +34,7 @@ export function Achievements() {
       aria-label="Achievements"
     >
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Lamp header — the Linear-style light slit above the section title */}
+        {/* Lamp header, the Linear-style light slit above the section title */}
         <LampContainer className="mb-8 sm:mb-12">
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -58,7 +58,7 @@ export function Achievements() {
             transition={{ duration: 0.7, delay: 0.6, ease: "easeInOut" }}
             className="mt-4 max-w-xl text-center text-sm leading-relaxed text-stone-400 sm:text-base"
           >
-            From quiz podiums to campus ambassador roles — recognition earned
+            From quiz podiums to campus ambassador roles, recognition earned
             through consistency and effort.
           </motion.p>
         </LampContainer>
@@ -138,7 +138,7 @@ export function Achievements() {
         <Reveal delay={0.2}>
           <div className="mt-12 flex flex-col items-start justify-between gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:flex-row sm:items-center sm:p-8">
             <p className="max-w-2xl font-serif text-lg italic leading-relaxed text-stone-300 sm:text-xl">
-              “Consistency compounds — perfect attendance, first-place quizzes
+              “Consistency compounds: perfect attendance, first-place quizzes
               and trusted roles all come from showing up, every single time.”
             </p>
             <HoverBorderGradient

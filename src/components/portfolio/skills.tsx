@@ -30,7 +30,7 @@ export function Skills() {
         <SectionHeading
           eyebrow="Skills"
           title="What I bring to the table"
-          description="Capabilities sharpened through real responsibilities — budgets, protocols, coordination and community work."
+          description="Capabilities sharpened through real responsibilities, from budgets and protocols to coordination and community work."
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

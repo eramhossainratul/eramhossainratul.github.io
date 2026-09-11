@@ -74,7 +74,7 @@ export function About() {
               >
                 <p className="font-serif text-lg italic leading-relaxed text-foreground/90 sm:text-xl">
                   “From managing a club's treasury to keeping order in its
-                  meetings — I've learned that real leadership lives in the
+                  meetings, I've learned that real leadership lives in the
                   details people can rely on.”
                 </p>
               </PointerHighlight>

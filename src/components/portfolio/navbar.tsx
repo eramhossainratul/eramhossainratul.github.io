@@ -25,7 +25,7 @@ const navItems = [
 
 /**
  * Live local-time badge. It fades out as the resizable pill shrinks so the
- * collapsed bar keeps room for the brand, links and CTA — the same scroll
+ * collapsed bar keeps room for the brand, links and CTA, the same scroll
  * threshold the navbar kit uses to trigger the shrink.
  */
 function LiveClock() {
@@ -73,7 +73,7 @@ export function Navbar() {
 
   return (
     <NavbarRoot>
-      {/* Desktop — the pill shrinks to half width once the page is scrolled */}
+      {/* Desktop, the pill shrinks to half width once the page is scrolled */}
       <NavBody>
         <NavbarLogo />
         <NavItems items={navItems} />

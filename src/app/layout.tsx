@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Md. Eram Hossain Ratul | Student Leader & Social Activist",
   description:
-    "Portfolio of Md. Eram Hossain Ratul — General Secretary (Acting) of Dhaka Commerce College Nature Study Club, Chief Sergeant-at-Arms of Rotaract Club of Dhaka Commerce College, and Cadet Lance Corporal at Bangladesh National Cadet Corps. Based in Uttara, Dhaka, Bangladesh.",
+    "Portfolio of Md. Eram Hossain Ratul, General Secretary (Acting) of Dhaka Commerce College Nature Study Club, Chief Sergeant-at-Arms of Rotaract Club of Dhaka Commerce College, and Cadet Lance Corporal at Bangladesh National Cadet Corps. Based in Uttara, Dhaka, Bangladesh.",
   keywords: [
     "Md. Eram Hossain Ratul",
     "Eram Hossain Ratul",

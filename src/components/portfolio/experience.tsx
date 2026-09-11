@@ -103,7 +103,7 @@ export function Experience() {
         <SectionHeading
           eyebrow="Experience"
           title="A steady climb through club leadership"
-          description="Seven roles across three organizations — every position built on the one before it, from first volunteer shift to acting general secretary."
+          description="Seven roles across three organizations, with every position built on the one before it, from first volunteer shift to acting general secretary."
         />
 
         <Reveal>

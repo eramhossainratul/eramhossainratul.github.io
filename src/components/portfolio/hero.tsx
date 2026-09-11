@@ -37,7 +37,7 @@ const dustMotes = [
 export function Hero() {
   const reduce = useReducedMotion();
 
-  // Pointer parallax — each visual layer sits at a different "depth" and
+  // Pointer parallax, each visual layer sits at a different "depth" and
   // drifts at its own rate, creating a subtle 3D diorama effect. Background
   // layers move against the pointer; foreground type moves with it.
   const pointerX = useMotionValue(0);
@@ -73,7 +73,7 @@ export function Hero() {
       onMouseLeave={resetPointer}
       className="relative min-h-svh overflow-hidden bg-stone-950"
     >
-      {/* Full-bleed portrait — top edge masked to black so the page background
+      {/* Full-bleed portrait, top edge masked to black so the page background
           and the giant name blend into the photo's own dark backdrop.
           Slightly over-scaled so the pointer-parallax never reveals gaps.
           Below lg the portrait starts below the navbar + giant name block so
@@ -92,7 +92,7 @@ export function Hero() {
         />
       </motion.div>
 
-      {/* Theatrical spotlight effects — breathing amber glow, rotating halo
+      {/* Theatrical spotlight effects, breathing amber glow, rotating halo
           rings and drifting dust motes around the centered portrait. Parallax
           moves with the portrait (it belongs to the scene, not the page). */}
       <motion.div
@@ -133,7 +133,7 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* Cinematic vignette — darkened edges pull focus to the person */}
+      {/* Cinematic vignette, darkened edges pull focus to the person */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_48%,rgba(10,8,4,0.5)_100%)]"
@@ -160,9 +160,9 @@ export function Hero() {
       />
 
       <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-7xl flex-col justify-between px-5 pb-8 pt-28 sm:px-8 sm:pb-10 lg:px-12 lg:pt-32">
-        {/* Top — giant name (left) + headline (right) */}
+        {/* Top: giant name (left) + headline (right) */}
         <div className="flex flex-col gap-7 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
-          {/* Parallax wrapper (depth layer) — entrance animation lives on the
+          {/* Parallax wrapper (depth layer), entrance animation lives on the
               inner motion.h1 to avoid MotionValue/animate conflicts on y. */}
           <motion.div style={{ x: nameX, y: nameY }} className="will-change-transform">
             <motion.h1
@@ -200,7 +200,7 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Bottom — bio (left) + CTA (right) */}
+        {/* Bottom: bio (left) + CTA (right) */}
         <motion.div
           initial={reduce ? undefined : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -209,7 +209,7 @@ export function Hero() {
         >
           <div className="max-w-md">
             <p className="text-sm leading-relaxed text-stone-300 sm:text-[15px]">
-              A student leader and social activist from Dhaka — currently
+              A student leader and social activist from Dhaka, currently
               serving as <strong className="font-semibold text-stone-100">General Secretary (Acting)</strong> of
               the Dhaka Commerce College Nature Study Club,{" "}
               <strong className="font-semibold text-stone-100">Chief Sergeant-at-Arms</strong> of

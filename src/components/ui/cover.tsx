@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils";
 import { SparklesCore } from "@/components/ui/sparkles";
 
 /**
- * Aceternity "cover" — a highlighted word with ambient beams and corner
+ * Aceternity "cover", a highlighted word with ambient beams and corner
  * pulses. Restyled for this site: the stock component was light-themed with
  * blue beams, so both palettes are explicit (the site does not toggle a
  * .dark class) and the beams use the site's amber accent.
  *
- * variant "dark"  — for the dark stone hero (default)
- * variant "light" — for light paper-toned sections
+ * variant "dark": for the dark stone hero (default)
+ * variant "light": for light paper-toned sections
  */
 const coverVariants = {
   dark: {

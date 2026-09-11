@@ -19,7 +19,7 @@ const connectCards = [
   {
     icon: School,
     title: "Find Me Around",
-    text: "Dhaka Commerce College — at Nature Study Club and Rotaract events.",
+    text: "Dhaka Commerce College, at Nature Study Club and Rotaract events.",
   },
 ];
 
@@ -38,7 +38,7 @@ export function Connect() {
               Let&apos;s build something <Cover variant="light">meaningful</Cover>
             </>
           }
-          description="Whether it's a club initiative, a community project or an event that needs a disciplined organizer — I'd be glad to hear about it."
+          description="Whether it's a club initiative, a community project or an event that needs a disciplined organizer, I'd be glad to hear about it."
         />
 
         <div className="grid gap-5 md:grid-cols-3">
@@ -76,7 +76,7 @@ export function Connect() {
                 &ldquo;Service above self.&rdquo;
               </p>
               <p className="mt-2 max-w-xl text-sm leading-relaxed text-primary-foreground/85">
-                The Rotaract spirit {profile.firstName} tries to live by — in
+                The Rotaract spirit {profile.firstName} tries to live by, in
                 every role, every event and every meeting.
               </p>
             </div>

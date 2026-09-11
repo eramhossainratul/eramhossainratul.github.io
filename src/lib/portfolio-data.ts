@@ -9,10 +9,10 @@ export const profile = {
   ],
   location: "Uttara Model Town, Dhaka, Bangladesh",
   tagline:
-    "A student leader from Dhaka who turns discipline, organization and service into impact — across clubs, campuses and community.",
+    "A student leader from Dhaka who turns discipline, organization and service into impact across clubs, campuses and community.",
   about: [
     "I am a student leader, club administrator and social activist based in Dhaka, Bangladesh. I currently serve as the General Secretary (Acting) of the Dhaka Commerce College Nature Study Club and as the Chief Sergeant-at-Arms of the Rotaract Club of Dhaka Commerce College, while also serving as a Cadet Lance Corporal in the Bangladesh National Cadet Corps (BNCC).",
-    "Over the past years I have grown through every rung of club leadership — volunteer, treasurer, joint secretary, sergeant-at-arms — learning how discipline, transparent administration and genuine teamwork build organizations that people want to be part of. I care deeply about environmental awareness, youth development and the small operational details that make events and institutions run smoothly.",
+    "Over the past years I have grown through every rung of club leadership, from volunteer to treasurer, joint secretary and sergeant-at-arms, learning how discipline, transparent administration and genuine teamwork build organizations that people want to be part of. I care deeply about environmental awareness, youth development and the small operational details that make events and institutions run smoothly.",
   ],
   stats: [
     { value: "7", label: "Leadership Roles" },
@@ -43,12 +43,12 @@ export const experience: ExperienceOrg[] = [
   {
     organization: "Rotaract Club of Dhaka Commerce College",
     type: "Volunteer Leadership · Rotaract / Rotary International",
-    totalPeriod: "Jun 2025 – Present",
+    totalPeriod: "Jun 2025 to Present",
     icon: "rotaract",
     roles: [
       {
         title: "Chief Sergeant-at-Arms",
-        period: "Jul 2026 – Present",
+        period: "Jul 2026 to Present",
         duration: "3 mos",
         current: true,
         summary:
@@ -63,7 +63,7 @@ export const experience: ExperienceOrg[] = [
       },
       {
         title: "Sergeant-at-Arms",
-        period: "Jun 2025 – Jul 2026",
+        period: "Jun 2025 to Jul 2026",
         duration: "1 yr 2 mos",
         summary:
           "Responsible for maintaining order, supporting meeting procedures, and ensuring the smooth execution of club events and official activities, working closely with the executive committee to create a well-organized and professional environment.",
@@ -80,16 +80,16 @@ export const experience: ExperienceOrg[] = [
   {
     organization: "Dhaka Commerce College Nature Study Club",
     type: "Volunteer Leadership · Environmental & Nature Club",
-    totalPeriod: "Apr 2025 – Present",
+    totalPeriod: "Apr 2025 to Present",
     icon: "nature",
     roles: [
       {
         title: "General Secretary (Acting)",
-        period: "Mar 2026 – Present",
+        period: "Mar 2026 to Present",
         duration: "7 mos",
         current: true,
         summary:
-          "Temporarily assumed the responsibilities of the General Secretary — overseeing the club's administrative operations, coordinating executive activities, and ensuring effective communication among members while maintaining continuity of club initiatives.",
+          "Temporarily assumed the responsibilities of the General Secretary, overseeing the club's administrative operations, coordinating executive activities, and ensuring effective communication among members while maintaining continuity of club initiatives.",
         contributions: [
           "Managed administrative and organizational activities during the acting tenure",
           "Coordinated executive meetings and maintained official records",
@@ -100,7 +100,7 @@ export const experience: ExperienceOrg[] = [
       },
       {
         title: "Joint Secretary",
-        period: "Feb 2026 – May 2026",
+        period: "Feb 2026 to May 2026",
         duration: "4 mos",
         summary:
           "Supported the Secretary in coordinating club activities, maintaining effective communication, and ensuring the smooth execution of meetings, events, and administrative tasks in collaboration with the executive committee.",
@@ -114,10 +114,10 @@ export const experience: ExperienceOrg[] = [
       },
       {
         title: "Treasurer",
-        period: "Jun 2025 – Feb 2026",
+        period: "Jun 2025 to Feb 2026",
         duration: "9 mos",
         summary:
-          "Managed the club's financial activities — maintaining accurate records, assisting with budgeting, and ensuring transparency in financial operations in support of club events and initiatives.",
+          "Managed the club's financial activities, maintaining accurate records, assisting with budgeting, and ensuring transparency in financial operations in support of club events and initiatives.",
         contributions: [
           "Managed financial records and transaction documentation",
           "Assisted in budget planning and expense tracking",
@@ -128,7 +128,7 @@ export const experience: ExperienceOrg[] = [
       },
       {
         title: "Volunteer",
-        period: "Apr 2025 – Jul 2025",
+        period: "Apr 2025 to Jul 2025",
         duration: "4 mos",
         summary:
           "Actively supported club initiatives by assisting with event planning, coordination, and on-ground execution, working collaboratively with team members to ensure activities ran smoothly and efficiently.",
@@ -144,16 +144,16 @@ export const experience: ExperienceOrg[] = [
   {
     organization: "Bangladesh National Cadet Corps (BNCC)",
     type: "National Cadet Program",
-    totalPeriod: "May 2025 – Present",
+    totalPeriod: "May 2025 to Present",
     icon: "cadet",
     roles: [
       {
         title: "Cadet Lance Corporal",
-        period: "May 2025 – Present",
+        period: "May 2025 to Present",
         duration: "1 yr 5 mos",
         current: true,
         summary:
-          "Serving as a Cadet Lance Corporal in the Bangladesh National Cadet Corps — building discipline, physical readiness, teamwork and leadership through structured national cadet training and programs.",
+          "Serving as a Cadet Lance Corporal in the Bangladesh National Cadet Corps, building discipline, physical readiness, teamwork and leadership through structured national cadet training and programs.",
         contributions: [],
       },
     ],
@@ -174,7 +174,7 @@ export const education: EducationItem[] = [
     institution: "Dhaka Commerce College",
     degree: "Higher Secondary Certificate",
     field: "Science",
-    period: "Aug 2024 – Present",
+    period: "Aug 2024 to Present",
     note: "Currently pursuing, alongside active club leadership roles.",
     icon: "college",
   },
@@ -182,7 +182,7 @@ export const education: EducationItem[] = [
     institution: "Adamjee Cantonment Public School",
     degree: "Secondary School Certificate",
     field: "Science",
-    period: "Jan 2014 – Dec 2024",
+    period: "Jan 2014 to Dec 2024",
     note: "Completed eleven years of schooling with a consistent academic record.",
     icon: "school",
   },
@@ -222,7 +222,7 @@ export const skills: SkillItem[] = [
   {
     name: "English",
     description:
-      "Professional working proficiency — correspondence, documentation and public speaking.",
+      "Professional working proficiency in correspondence, documentation and public speaking.",
     icon: "languages",
   },
 ];
@@ -247,7 +247,7 @@ export const achievements: AchievementItem[] = [
     highlight: true,
   },
   {
-    title: "1st Place — Eco Spark Challenge",
+    title: "1st Place, Eco Spark Challenge",
     organization: "Dhaka Commerce College Nature Study Club",
     detail:
       "Won first position in the environment-focused quiz competition, competing across the college.",
@@ -256,7 +256,7 @@ export const achievements: AchievementItem[] = [
     highlight: true,
   },
   {
-    title: "6th Place — Energy Talk Delegates Quiz",
+    title: "6th Place, Energy Talk Delegates Quiz",
     organization: "Inter-college Competition",
     detail:
       "Placed sixth among delegate teams in the Energy Talk quiz competition held on 30 June 2025.",
@@ -264,7 +264,7 @@ export const achievements: AchievementItem[] = [
     icon: "zap",
   },
   {
-    title: "Certificate of Achievement — Debate",
+    title: "Certificate of Achievement (Debate)",
     organization: "Voice of Nature 1.0",
     detail:
       "Awarded for successful participation in the debate competition organized by the Nature Study Club.",
@@ -272,15 +272,15 @@ export const achievements: AchievementItem[] = [
     icon: "mic",
   },
   {
-    title: "Campus Ambassador — Gonitbid 2025",
+    title: "Campus Ambassador, Gonitbid 2025",
     organization: "Bangladesh Olympiadian Club",
     detail:
-      "Approved as Campus Ambassador representing Dhaka Commerce College — promoted the event, built an Olympiad-focused community and strengthened leadership and communication skills.",
+      "Approved as Campus Ambassador representing Dhaka Commerce College. Promoted the event, built an Olympiad-focused community and strengthened leadership and communication skills.",
     year: "2025",
     icon: "globe",
   },
   {
-    title: "Campus Ambassador — NDC English Carnival 2025",
+    title: "Campus Ambassador, NDC English Carnival 2025",
     organization: "NDC English Carnival",
     detail:
       "Honored with the Campus Ambassador role in recognition of promotion and outreach efforts.",
@@ -288,10 +288,10 @@ export const achievements: AchievementItem[] = [
     icon: "globe",
   },
   {
-    title: "Participant — TECHNOVATION'25",
+    title: "Participant, TECHNOVATION'25",
     organization: "Josephite IT Club · Eastern Bank Ltd.",
     detail:
-      "Earned a certificate of participation in the technology competition — teamwork, new ideas and hands-on learning.",
+      "Earned a certificate of participation in the technology competition, gaining teamwork, new ideas and hands-on learning.",
     year: "2025",
     icon: "cpu",
   },

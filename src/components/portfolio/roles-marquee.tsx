@@ -1,7 +1,7 @@
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { experience } from "@/lib/portfolio-data";
 
-// One credential card per role across all organizations — the marquee
+// One credential card per role across all organizations, the marquee
 // duplicates the list internally for a seamless loop.
 const marqueeItems = experience.flatMap((org) =>
   org.roles.map((role) => ({
@@ -12,7 +12,7 @@ const marqueeItems = experience.flatMap((org) =>
 );
 
 /**
- * Slim dark band below the hero — a slow credential ticker that keeps the
+ * Slim dark band below the hero, a slow credential ticker that keeps the
  * cinematic energy flowing into the first light section.
  */
 export function RolesMarquee() {
