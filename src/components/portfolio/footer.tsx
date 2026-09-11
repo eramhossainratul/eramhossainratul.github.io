@@ -1,4 +1,5 @@
 import { MapPin, ArrowUp } from "lucide-react";
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { profile } from "@/lib/portfolio-data";
 
 const footerLinks = [
@@ -20,12 +21,12 @@ export function Footer() {
           {/* Brand */}
           <div className="max-w-sm">
             <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-amber-700 font-serif text-sm font-bold text-stone-950">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-amber-700 font-serif text-sm font-bold text-stone-950">
                 ER
               </span>
-              <span className="font-serif text-lg font-semibold text-stone-100">
-                {profile.name}
-              </span>
+              <div className="h-12 w-52 sm:w-64">
+                <TextHoverEffect text="Eram Ratul" />
+              </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-stone-400">
               {profile.roles.join(" · ")} — committed to disciplined service,

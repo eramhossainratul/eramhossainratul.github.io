@@ -11,6 +11,7 @@ import {
 } from "framer-motion";
 import { MapPin, ArrowRight } from "lucide-react";
 import { Cover } from "@/components/ui/cover";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { profile } from "@/lib/portfolio-data";
 
 // next/image does not prefix string sources with the GitHub Pages basePath in
@@ -222,16 +223,18 @@ export function Hero() {
             </p>
           </div>
 
-          <a
+          <HoverBorderGradient
+            as="a"
             href="#experience"
-            className="group inline-flex h-12 shrink-0 items-center gap-3 self-start rounded-full border border-white/25 bg-stone-950/40 px-7 text-xs font-semibold uppercase tracking-[0.16em] text-stone-100 backdrop-blur-sm transition-all hover:border-stone-100 hover:bg-stone-100 hover:text-stone-950 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300 sm:self-auto"
+            containerClassName="shrink-0 self-start rounded-full border-white/25 sm:self-auto"
+            className="flex items-center gap-3 px-7 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-stone-100"
           >
             View My Journey
             <ArrowRight
-              className="h-4 w-4 transition-transform group-hover:translate-x-1"
+              className="h-4 w-4"
               aria-hidden="true"
             />
-          </a>
+          </HoverBorderGradient>
         </motion.div>
       </div>
     </section>

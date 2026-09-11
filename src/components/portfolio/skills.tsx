@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { skills } from "@/lib/portfolio-data";
 
 const skillIcons: Record<string, typeof Users> = {
@@ -37,16 +38,26 @@ export function Skills() {
             const Icon = skillIcons[skill.icon] ?? Users;
             return (
               <Reveal key={skill.name} delay={i * 0.08} className="h-full">
-                <article className="group h-full rounded-2xl border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-105">
-                    <Icon className="h-6 w-6" aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-5 font-serif text-lg font-semibold text-foreground">
-                    {skill.name}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {skill.description}
-                  </p>
+                <article className="group relative h-full rounded-2xl border bg-card shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
+                  <GlowingEffect
+                    spread={36}
+                    glow
+                    disabled={false}
+                    proximity={64}
+                    inactiveZone={0.01}
+                    borderWidth={1.5}
+                  />
+                  <div className="relative p-6">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-105">
+                      <Icon className="h-6 w-6" aria-hidden="true" />
+                    </span>
+                    <h3 className="mt-5 font-serif text-lg font-semibold text-foreground">
+                      {skill.name}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {skill.description}
+                    </p>
+                  </div>
                 </article>
               </Reveal>
             );

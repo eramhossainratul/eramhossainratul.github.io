@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Cog, Leaf, Shield } from "lucide-react";
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
-import { experience } from "@/lib/portfolio-data";
+import { experience, type ExperienceRole } from "@/lib/portfolio-data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Accordion,
@@ -13,7 +13,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+import { Timeline } from "@/components/ui/timeline";
 
 const orgIcons: Record<string, typeof Cog> = {
   rotaract: Cog,
@@ -26,6 +26,69 @@ const shortNames: Record<string, string> = {
   nature: "Nature Study Club",
   cadet: "BNCC",
 };
+
+/** Role card rendered as a timeline entry on the Aceternity timeline. */
+function RoleCard({ role }: { role: ExperienceRole }) {
+  return (
+    <div className="rounded-2xl border bg-card p-5 shadow-sm transition-shadow hover:shadow-md sm:p-6">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h4 className="font-serif text-lg font-semibold text-foreground">
+          {role.title}
+        </h4>
+        <div className="flex flex-wrap items-center gap-2">
+          {role.current && (
+            <Badge className="rounded-full bg-primary text-primary-foreground">
+              Current
+            </Badge>
+          )}
+          <span className="text-xs font-medium text-muted-foreground">
+            {role.duration}
+          </span>
+        </div>
+      </div>
+
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+        {role.summary}
+      </p>
+
+      {role.contributions.length > 0 && (
+        <Accordion
+          type="single"
+          collapsible
+          className="mt-4 border-t pt-1"
+        >
+          <AccordionItem
+            value={role.title}
+            className="border-none"
+          >
+            <AccordionTrigger
+              className="py-3 text-left text-sm font-semibold text-primary hover:no-underline hover:text-primary/80 [&>svg]:text-primary/60"
+              aria-label={`Show key contributions for ${role.title}`}
+            >
+              Key Contributions
+            </AccordionTrigger>
+            <AccordionContent className="pt-1 pb-2">
+              <ul className="space-y-2.5">
+                {role.contributions.map((c) => (
+                  <li
+                    key={c}
+                    className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70"
+                    />
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      )}
+    </div>
+  );
+}
 
 export function Experience() {
   const [activeTab, setActiveTab] = useState(experience[0].organization);
@@ -95,81 +158,12 @@ export function Experience() {
                   </div>
 
                   {/* Roles timeline */}
-                  <div className="relative space-y-8 before:absolute before:bottom-3 before:left-[7px] before:top-3 before:w-px before:bg-border">
-                    {org.roles.map((role) => (
-                      <article
-                        key={role.title}
-                        className="relative pl-10 sm:pl-12"
-                      >
-                        <span
-                          aria-hidden="true"
-                          className={cn(
-                            "absolute left-0 top-2 h-[15px] w-[15px] rounded-full border-[3px]",
-                            role.current
-                              ? "border-primary bg-primary/25 shadow-[0_0_0_4px_rgba(180,83,9,0.15)]"
-                              : "border-muted-foreground/40 bg-background"
-                          )}
-                        />
-                        <div className="rounded-2xl border bg-card p-5 shadow-sm transition-shadow hover:shadow-md sm:p-6">
-                          <div className="flex flex-wrap items-center justify-between gap-3">
-                            <h4 className="font-serif text-lg font-semibold text-foreground">
-                              {role.title}
-                            </h4>
-                            <div className="flex flex-wrap items-center gap-2">
-                              {role.current && (
-                                <Badge className="rounded-full bg-primary text-primary-foreground">
-                                  Current
-                                </Badge>
-                              )}
-                              <span className="text-xs font-medium text-muted-foreground">
-                                {role.period} · {role.duration}
-                              </span>
-                            </div>
-                          </div>
-
-                          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                            {role.summary}
-                          </p>
-
-                          {role.contributions.length > 0 && (
-                            <Accordion
-                              type="single"
-                              collapsible
-                              className="mt-4 border-t pt-1"
-                            >
-                              <AccordionItem
-                                value={role.title}
-                                className="border-none"
-                              >
-                                <AccordionTrigger
-                                  className="py-3 text-left text-sm font-semibold text-primary hover:no-underline hover:text-primary/80 [&>svg]:text-primary/60"
-                                  aria-label={`Show key contributions for ${role.title}`}
-                                >
-                                  Key Contributions
-                                </AccordionTrigger>
-                                <AccordionContent className="pt-1 pb-2">
-                                  <ul className="space-y-2.5">
-                                    {role.contributions.map((c) => (
-                                      <li
-                                        key={c}
-                                        className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground"
-                                      >
-                                        <span
-                                          aria-hidden="true"
-                                          className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70"
-                                        />
-                                        {c}
-                                      </li>
-                                    ))}
-                                  </ul>
-                                </AccordionContent>
-                              </AccordionItem>
-                            </Accordion>
-                          )}
-                        </div>
-                      </article>
-                    ))}
-                  </div>
+                  <Timeline
+                    data={org.roles.map((role) => ({
+                      title: role.period,
+                      content: <RoleCard role={role} />,
+                    }))}
+                  />
                 </TabsContent>
               );
             })}

@@ -2,6 +2,7 @@ import { MapPin, HandHeart, School, ArrowUp } from "lucide-react";
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
 import { Cover } from "@/components/ui/cover";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { profile } from "@/lib/portfolio-data";
 
 const connectCards = [
@@ -43,16 +44,26 @@ export function Connect() {
         <div className="grid gap-5 md:grid-cols-3">
           {connectCards.map((card, i) => (
             <Reveal key={card.title} delay={i * 0.1} className="h-full">
-              <article className="group h-full rounded-2xl border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-md sm:p-7">
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-105">
-                  <card.icon className="h-6 w-6" aria-hidden="true" />
-                </span>
-                <h3 className="mt-5 font-serif text-lg font-semibold text-foreground">
-                  {card.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {card.text}
-                </p>
+              <article className="group relative h-full rounded-2xl border bg-card shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-md">
+                <GlowingEffect
+                  spread={36}
+                  glow
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  borderWidth={1.5}
+                />
+                <div className="relative p-6 sm:p-7">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-105">
+                    <card.icon className="h-6 w-6" aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-5 font-serif text-lg font-semibold text-foreground">
+                    {card.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {card.text}
+                  </p>
+                </div>
               </article>
             </Reveal>
           ))}

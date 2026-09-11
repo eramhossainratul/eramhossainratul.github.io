@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Award,
   Trophy,
@@ -8,8 +10,10 @@ import {
   Leaf,
   ArrowRight,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import { Reveal } from "./reveal";
-import { SectionHeading } from "./section-heading";
+import { LampContainer } from "@/components/ui/lamp";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { achievements, activities } from "@/lib/portfolio-data";
 import { cn } from "@/lib/utils";
 
@@ -29,18 +33,35 @@ export function Achievements() {
       className="relative overflow-hidden bg-stone-950 py-20 sm:py-28"
       aria-label="Achievements"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-32 left-1/2 h-[26rem] w-[36rem] -translate-x-1/2 rounded-full bg-amber-600/10 blur-[130px]"
-      />
-
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <SectionHeading
-          dark
-          eyebrow="Achievements & Recognition"
-          title="Awards, honors & moments that shaped the journey"
-          description="From quiz podiums to campus ambassador roles — recognition earned through consistency and effort."
-        />
+        {/* Lamp header — the Linear-style light slit above the section title */}
+        <LampContainer className="mb-8 sm:mb-12">
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45, ease: "easeInOut" }}
+            className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-amber-400"
+          >
+            Achievements &amp; Recognition
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0.5, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
+            className="bg-gradient-to-br from-stone-100 via-stone-300 to-stone-500 bg-clip-text text-center font-serif text-3xl font-semibold tracking-tight text-transparent sm:text-4xl lg:text-[2.75rem]"
+          >
+            Awards, honors &amp; moments that shaped the journey
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6, ease: "easeInOut" }}
+            className="mt-4 max-w-xl text-center text-sm leading-relaxed text-stone-400 sm:text-base"
+          >
+            From quiz podiums to campus ambassador roles — recognition earned
+            through consistency and effort.
+          </motion.p>
+        </LampContainer>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {achievements.map((ach, i) => {
@@ -120,13 +141,15 @@ export function Achievements() {
               “Consistency compounds — perfect attendance, first-place quizzes
               and trusted roles all come from showing up, every single time.”
             </p>
-            <a
+            <HoverBorderGradient
+              as="a"
               href="#connect"
-              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-amber-500/40 px-5 py-2.5 text-sm font-semibold text-amber-300 transition-colors hover:bg-amber-500/10"
+              containerClassName="shrink-0 rounded-full border-amber-500/40"
+              className="flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-amber-300"
             >
               Work with me
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </HoverBorderGradient>
           </div>
         </Reveal>
       </div>

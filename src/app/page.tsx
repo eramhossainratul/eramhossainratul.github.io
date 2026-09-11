@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/portfolio/navbar";
 import { Hero } from "@/components/portfolio/hero";
+import { RolesMarquee } from "@/components/portfolio/roles-marquee";
 import { About } from "@/components/portfolio/about";
 import { Experience } from "@/components/portfolio/experience";
 import { Education } from "@/components/portfolio/education";
@@ -42,6 +43,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <RolesMarquee />
         <About />
         <Experience />
         <Education />

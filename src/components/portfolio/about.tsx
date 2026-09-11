@@ -1,6 +1,8 @@
 import { MapPin, GraduationCap, Shield, Leaf } from "lucide-react";
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { profile } from "@/lib/portfolio-data";
 import { Badge } from "@/components/ui/badge";
 
@@ -58,18 +60,24 @@ export function About() {
           <Reveal>
             <div className="space-y-5">
               {profile.about.map((paragraph, i) => (
-                <p
+                <TextGenerateEffect
                   key={i}
+                  words={paragraph}
+                  staggerDelay={0.05}
+                  duration={0.4}
                   className="text-base leading-relaxed text-muted-foreground sm:text-lg"
-                >
-                  {paragraph}
-                </p>
+                />
               ))}
-              <p className="border-l-2 border-primary/60 pl-5 font-serif text-lg italic leading-relaxed text-foreground/90 sm:text-xl">
-                “From managing a club's treasury to keeping order in its
-                meetings — I've learned that real leadership lives in the
-                details people can rely on.”
-              </p>
+              <PointerHighlight
+                containerClassName="w-full"
+                rectangleClassName="rounded-xl border-primary/40"
+              >
+                <p className="font-serif text-lg italic leading-relaxed text-foreground/90 sm:text-xl">
+                  “From managing a club's treasury to keeping order in its
+                  meetings — I've learned that real leadership lives in the
+                  details people can rely on.”
+                </p>
+              </PointerHighlight>
             </div>
           </Reveal>
 

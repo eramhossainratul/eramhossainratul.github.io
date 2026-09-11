@@ -91,11 +91,19 @@ Designed with a warm copper/amber and deep stone aesthetic, the website combines
 │   │       ├── badge.tsx
 │   │       ├── button.tsx
 │   │       ├── card.tsx
-│   │       ├── cover.tsx            # Aceternity "cover" heading highlight
-│   │       ├── resizable-navbar.tsx # Aceternity resizable navbar kit
+│   │       ├── cover.tsx              # Aceternity "cover" heading highlight
+│   │       ├── glowing-effect.tsx     # Aceternity cursor-tracking card glow
+│   │       ├── hover-border-gradient.tsx # Aceternity animated-border CTA
+│   │       ├── infinite-moving-cards.tsx # Aceternity roles marquee
+│   │       ├── lamp.tsx               # Aceternity lamp section header
+│   │       ├── pointer-highlight.tsx  # Aceternity scroll-in text highlight
+│   │       ├── resizable-navbar.tsx   # Aceternity resizable navbar kit
 │   │       ├── sheet.tsx
-│   │       ├── sparkles.tsx         # Sparkle canvas used by the Cover
-│   │       └── tabs.tsx
+│   │       ├── sparkles.tsx           # Sparkle canvas used by the Cover
+│   │       ├── tabs.tsx
+│   │       ├── text-generate-effect.tsx  # Aceternity word-by-word fade-in
+│   │       ├── text-hover-effect.tsx  # Aceternity outlined brand hover
+│   │       └── timeline.tsx           # Aceternity scroll progress timeline
 │   ├── hooks/
 │   │   └── use-mobile.ts        # Responsive breakpoint hook
 │   └── lib/
