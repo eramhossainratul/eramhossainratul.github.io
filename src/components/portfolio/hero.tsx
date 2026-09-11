@@ -75,11 +75,11 @@ export function Hero() {
       {/* Full-bleed portrait — top edge masked to black so the page background
           and the giant name blend into the photo's own dark backdrop.
           Slightly over-scaled so the pointer-parallax never reveals gaps.
-          On mobile the wrapper is taller (top-aligned) so the subject's head
-          sits safely below the giant name, as in the reference design. */}
+          Below lg the portrait starts below the navbar + giant name block so
+          the subject's head keeps clear breathing room on stacked layouts. */}
       <motion.div
         style={{ x: portraitX, y: portraitY, scale: 1.04 }}
-        className="absolute inset-x-0 top-0 z-0 h-[130%] sm:inset-0 sm:h-full [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%)] sm:[mask-image:linear-gradient(to_bottom,transparent_0%,black_13%)]"
+        className="absolute inset-x-0 top-32 z-0 h-[130%] sm:h-full lg:top-0 [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%)] sm:[mask-image:linear-gradient(to_bottom,transparent_0%,black_13%)]"
       >
         <Image
           src={`${basePath}/hero-portrait.jpg`}
@@ -158,7 +158,7 @@ export function Hero() {
         className="absolute right-6 top-1/2 z-[1] hidden h-24 w-px -translate-y-1/2 bg-white/15 lg:block"
       />
 
-      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-7xl flex-col justify-between px-5 pb-8 pt-24 sm:px-8 sm:pb-10 lg:px-12 lg:pt-28">
+      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-7xl flex-col justify-between px-5 pb-8 pt-28 sm:px-8 sm:pb-10 lg:px-12 lg:pt-32">
         {/* Top — giant name (left) + headline (right) */}
         <div className="flex flex-col gap-7 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
           {/* Parallax wrapper (depth layer) — entrance animation lives on the
@@ -168,14 +168,14 @@ export function Hero() {
               initial={reduce ? undefined : { opacity: 0, y: 44 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="select-none font-serif text-[clamp(3.5rem,12vw,10.5rem)] font-black uppercase leading-[0.82] tracking-[-0.02em]"
+              className="select-none font-serif text-[clamp(3.5rem,min(12vw,17svh),10.5rem)] font-black uppercase leading-[0.82] tracking-[-0.02em]"
             >
               <span className="sr-only">Md. Eram Hossain Ratul</span>
               <span
                 aria-hidden="true"
                 className="bg-[linear-gradient(to_bottom,white_0%,rgba(255,255,255,0.5)_42%,transparent_78%)] bg-clip-text text-transparent"
               >
-                Ratul
+                Eram
               </span>
             </motion.h1>
           </motion.div>
