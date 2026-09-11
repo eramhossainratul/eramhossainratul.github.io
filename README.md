@@ -79,7 +79,7 @@ Designed with a warm copper/amber and deep stone aesthetic, the website combines
 │   │   │   ├── experience.tsx   # Organizational leadership timeline
 │   │   │   ├── footer.tsx       # Site footer
 │   │   │   ├── hero.tsx         # Full-bleed hero banner
-│   │   │   ├── navbar.tsx       # Floating blur nav with live clock
+│   │   │   ├── navbar.tsx       # Aceternity-style resizable pill nav with live clock
 │   │   │   ├── reveal.tsx       # Scroll-triggered entrance animation wrapper
 │   │   │   └── section-heading.tsx # Uniform section header typography
 │   │   └── ui/                  # Reusable accessible UI components
@@ -87,7 +87,10 @@ Designed with a warm copper/amber and deep stone aesthetic, the website combines
 │   │       ├── badge.tsx
 │   │       ├── button.tsx
 │   │       ├── card.tsx
+│   │       ├── cover.tsx            # Aceternity "cover" heading highlight
+│   │       ├── resizable-navbar.tsx # Aceternity resizable navbar kit
 │   │       ├── sheet.tsx
+│   │       ├── sparkles.tsx         # Sparkle canvas used by the Cover
 │   │       └── tabs.tsx
 │   ├── hooks/
 │   │   └── use-mobile.ts        # Responsive breakpoint hook

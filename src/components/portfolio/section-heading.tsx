@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Reveal } from "./reveal";
 import { cn } from "@/lib/utils";
 
@@ -10,7 +11,8 @@ export function SectionHeading({
   className,
 }: {
   eyebrow: string;
-  title: string;
+  /** Accepts rich nodes so headings can embed components like <Cover>. */
+  title: ReactNode;
   description?: string;
   dark?: boolean;
   align?: "left" | "center";

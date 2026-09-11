@@ -10,6 +10,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { MapPin, ArrowRight } from "lucide-react";
+import { Cover } from "@/components/ui/cover";
 import { profile } from "@/lib/portfolio-data";
 
 // next/image does not prefix string sources with the GitHub Pages basePath in
@@ -192,7 +193,7 @@ export function Hero() {
               <p className="mt-3 font-serif text-2xl font-medium leading-snug text-stone-100 sm:text-3xl lg:text-[2.1rem]">
                 Leading with order.
                 <br />
-                Serving with purpose.
+                Serving with <Cover>purpose</Cover>.
               </p>
             </motion.div>
           </motion.div>

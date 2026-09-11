@@ -1,6 +1,7 @@
 import { MapPin, HandHeart, School, ArrowUp } from "lucide-react";
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
+import { Cover } from "@/components/ui/cover";
 import { profile } from "@/lib/portfolio-data";
 
 const connectCards = [
@@ -31,7 +32,11 @@ export function Connect() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
           eyebrow="Connect"
-          title="Let's build something meaningful"
+          title={
+            <>
+              Let&apos;s build something <Cover variant="light">meaningful</Cover>
+            </>
+          }
           description="Whether it's a club initiative, a community project or an event that needs a disciplined organizer — I'd be glad to hear about it."
         />
 
