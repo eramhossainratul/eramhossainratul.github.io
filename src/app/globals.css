@@ -158,3 +158,89 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
 }
+
+/* ===== Hero spotlight theatrical effects ===== */
+/* All animations are transform/opacity only (GPU-composited) and disabled
+   under prefers-reduced-motion. */
+
+@keyframes hero-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes hero-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-dust-drift {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  12% {
+    opacity: var(--peak, 0.5);
+  }
+  85% {
+    opacity: 0.12;
+  }
+  100% {
+    transform: translateY(-9rem) translateX(1.5rem);
+    opacity: 0;
+  }
+}
+
+.hero-glow {
+  animation: hero-breathe 7s ease-in-out infinite;
+}
+
+/* Thin rotating halo ring (conic gradient masked to a 2px circle outline) */
+.hero-ring {
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(251, 191, 36, 0.45) 35deg,
+    transparent 80deg,
+    transparent 200deg,
+    rgba(253, 224, 71, 0.25) 240deg,
+    transparent 300deg
+  );
+  -webkit-mask: radial-gradient(
+    closest-side,
+    transparent calc(100% - 2px),
+    black calc(100% - 2px)
+  );
+  mask: radial-gradient(
+    closest-side,
+    transparent calc(100% - 2px),
+    black calc(100% - 2px)
+  );
+  animation: hero-ring-spin var(--spin, 30s) linear infinite;
+}
+
+.hero-ring--reverse {
+  animation-direction: reverse;
+  opacity: 0.7;
+}
+
+.hero-dust {
+  --peak: 0.5;
+  animation: hero-dust-drift var(--dur, 12s) linear var(--delay, 0s) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow,
+  .hero-ring,
+  .hero-dust {
+    animation: none;
+  }
+}
