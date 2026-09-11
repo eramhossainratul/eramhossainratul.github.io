@@ -4,11 +4,12 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { MapPin, ArrowRight } from "lucide-react";
 import { profile } from "@/lib/portfolio-data";
-// Static import (not a public-path string): with `output: "export"` and
-// `images.unoptimized`, next/image leaves string sources unprefixed by the
-// GitHub Pages basePath, which 404s the hero portrait. A static import is
-// bundled like any other asset and always carries the correct basePath.
-import heroPortrait from "../../../public/hero-portrait.jpg";
+
+// next/image does not prefix string sources with the GitHub Pages basePath in
+// static export (unlike bundled _next assets), so the public-path src must be
+// prefixed explicitly. NEXT_PUBLIC_BASE_PATH is inlined at build time (set by
+// the deploy workflow); locally it is empty and the asset is served from root.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -25,7 +26,7 @@ export function Hero() {
           sits safely below the giant name, as in the reference design. */}
       <div className="absolute inset-x-0 top-0 z-0 h-[130%] sm:inset-0 sm:h-full [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%)] sm:[mask-image:linear-gradient(to_bottom,transparent_0%,black_13%)]">
         <Image
-          src={heroPortrait}
+          src={`${basePath}/hero-portrait.jpg`}
           alt="Portrait of Md. Eram Hossain Ratul in a brown plaid blazer, standing under warm spotlight lighting"
           fill
           priority
