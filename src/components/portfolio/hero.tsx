@@ -189,7 +189,11 @@ export function Hero() {
               className="max-w-md lg:pt-3 lg:text-right"
             >
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-400">
-                {profile.roles.join(" · ")}
+                {/* Phones show the primary role only so the hero stays airy */}
+                <span className="sm:hidden">{profile.roles[0]}</span>
+                <span className="hidden sm:inline">
+                  {profile.roles.join(" · ")}
+                </span>
               </p>
               <p className="mt-3 font-serif text-2xl font-medium leading-snug text-stone-100 sm:text-3xl lg:text-[2.1rem]">
                 Leading with order.
@@ -208,7 +212,11 @@ export function Hero() {
           className="flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between sm:gap-12"
         >
           <div className="max-w-md">
-            <p className="text-sm leading-relaxed text-stone-300 sm:text-[15px]">
+            {/* Short tagline on phones; the full bio would fill the screen */}
+            <p className="text-sm leading-relaxed text-stone-300 sm:hidden">
+              {profile.tagline}
+            </p>
+            <p className="hidden text-sm leading-relaxed text-stone-300 sm:block sm:text-[15px]">
               A student leader and social activist from Dhaka, currently
               serving as <strong className="font-semibold text-stone-100">General Secretary (Acting)</strong> of
               the Dhaka Commerce College Nature Study Club,{" "}
