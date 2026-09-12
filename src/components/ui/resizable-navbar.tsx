@@ -15,6 +15,10 @@ import React, { useRef, useState } from "react";
  * amber palette. The bar floats over the hero as a full-width transparent
  * strip; past 100px of scroll the desktop pill springs down and shrinks to
  * half its width while picking up a blurred stone backdrop and border.
+ * Past 200px the bar also auto-hides while scrolling down and slides back
+ * in as soon as the reader scrolls up, so it never sits on top of the
+ * page content while reading (sections alternate between cream and dark
+ * backgrounds, so it simply gets out of the way instead of recoloring).
  */
 interface NavbarProps {
   children: React.ReactNode;
@@ -25,6 +29,7 @@ interface NavBodyProps {
   children: React.ReactNode;
   className?: string;
   visible?: boolean;
+  hidden?: boolean;
 }
 
 interface NavItemsProps {
@@ -40,6 +45,7 @@ interface MobileNavProps {
   children: React.ReactNode;
   className?: string;
   visible?: boolean;
+  hidden?: boolean;
 }
 
 interface MobileNavHeaderProps {
@@ -61,13 +67,22 @@ export const Navbar = ({ children, className }: NavbarProps) => {
     offset: ["start start", "end start"],
   });
   const [visible, setVisible] = useState<boolean>(false);
+  const [hidden, setHidden] = useState<boolean>(false);
+  const lastY = useRef(0);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 100) {
-      setVisible(true);
-    } else {
-      setVisible(false);
+    const previous = lastY.current;
+    setVisible(latest > 100);
+    // Auto-hide: slide the bar away while scrolling down through the page
+    // and bring it straight back on any upward scroll. A small hysteresis
+    // band keeps trackpad jitter from flickering it; near the top the bar
+    // always stays visible.
+    if (latest > previous + 4 && latest > 200) {
+      setHidden(true);
+    } else if (latest < previous - 4 || latest <= 200) {
+      setHidden(false);
     }
+    lastY.current = latest;
   });
 
   return (
@@ -80,8 +95,11 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(
-              child as React.ReactElement<{ visible?: boolean }>,
-              { visible },
+              child as React.ReactElement<{
+                visible?: boolean;
+                hidden?: boolean;
+              }>,
+              { visible, hidden },
             )
           : child,
       )}
@@ -89,16 +107,18 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   );
 };
 
-export const NavBody = ({ children, className, visible }: NavBodyProps) => {
+export const NavBody = ({ children, className, visible, hidden }: NavBodyProps) => {
   return (
     <motion.div
       animate={{
-        backdropFilter: visible ? "blur(10px)" : "none",
-        boxShadow: visible
-          ? "0 12px 40px -8px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06)"
+        backdropFilter: visible && !hidden ? "blur(10px)" : "none",
+        boxShadow: visible && !hidden
+          ? "0 8px 28px -14px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06)"
           : "none",
         width: visible ? "50%" : "100%",
-        y: visible ? 20 : 0,
+        y: hidden ? -96 : visible ? 20 : 0,
+        opacity: hidden ? 0 : 1,
+        pointerEvents: hidden ? "none" : "auto",
       }}
       transition={{
         type: "spring",
@@ -112,7 +132,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       }}
       className={cn(
         "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full border border-transparent bg-transparent px-4 py-2 lg:flex",
-        visible && "border-white/10 bg-stone-950/85",
+        visible && "border-white/10 bg-stone-950/75",
         className,
       )}
       aria-label="Primary navigation"
@@ -154,19 +174,21 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   );
 };
 
-export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
+export const MobileNav = ({ children, className, visible, hidden }: MobileNavProps) => {
   return (
     <motion.div
       animate={{
-        backdropFilter: visible ? "blur(10px)" : "none",
-        boxShadow: visible
+        backdropFilter: visible && !hidden ? "blur(10px)" : "none",
+        boxShadow: visible && !hidden
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
         width: visible ? "90%" : "100%",
         paddingRight: visible ? "12px" : "0px",
         paddingLeft: visible ? "12px" : "0px",
         borderRadius: visible ? "4px" : "2rem",
-        y: visible ? 20 : 0,
+        y: hidden ? -96 : visible ? 20 : 0,
+        opacity: hidden ? 0 : 1,
+        pointerEvents: hidden ? "none" : "auto",
       }}
       transition={{
         type: "spring",
@@ -175,7 +197,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
       }}
       className={cn(
         "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent border border-transparent px-0 py-2 lg:hidden",
-        visible && "border-white/10 bg-stone-950/85",
+        visible && "border-white/10 bg-stone-950/75",
         className,
       )}
       aria-label="Mobile navigation"
@@ -288,7 +310,7 @@ export const NavbarButton = ({
 
   const variantStyles = {
     primary:
-      "bg-amber-400 text-stone-950 shadow-[0_8px_24px_-6px_rgba(251,191,36,0.45)] hover:bg-amber-300",
+      "bg-amber-400 text-stone-950 shadow-[0_4px_16px_-4px_rgba(251,191,36,0.35)] hover:bg-amber-300",
     secondary:
       "bg-transparent text-stone-200 border border-white/20 hover:border-amber-300/60 hover:text-amber-200",
     dark: "bg-stone-950 text-stone-100 border border-white/15 hover:border-amber-400/50",
