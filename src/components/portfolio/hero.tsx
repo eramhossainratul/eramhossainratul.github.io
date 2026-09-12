@@ -181,7 +181,13 @@ export function Hero() {
             </motion.h1>
           </motion.div>
 
-          <motion.div style={{ x: headlineX, y: headlineY }} className="will-change-transform">
+          {/* The headline block is desktop-only; on phones the hero keeps
+              just the giant name, short bio and CTA so it never feels
+              text-heavy. */}
+          <motion.div
+            style={{ x: headlineX, y: headlineY }}
+            className="hidden will-change-transform sm:block"
+          >
             <motion.div
               initial={reduce ? undefined : { opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
