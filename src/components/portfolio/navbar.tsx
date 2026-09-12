@@ -102,7 +102,7 @@ export function Navbar() {
               key={`mobile-link-${item.name}`}
               href={item.link}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex w-full items-center justify-between text-[11px] font-medium uppercase tracking-[0.16em] text-stone-400 transition-colors hover:text-amber-200"
+              className="flex w-full items-center justify-between rounded-lg px-1 text-[11px] font-medium uppercase tracking-[0.16em] text-stone-400 transition-colors hover:text-amber-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
             >
               <span className="block">{item.name}</span>
             </a>

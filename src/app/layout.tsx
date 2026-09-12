@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-// Canonical origin of the deployed site (GitHub Pages project site).
-// If a custom domain is configured later, update this value accordingly.
-const siteUrl = "https://maherukhislam.github.io";
-// next/image string sources don't get the basePath applied in static export,
-// so relative asset URLs (e.g. OpenGraph images) must include it explicitly.
+// Canonical origin of the deployed site (GitHub Pages project site). The
+// repository deploys under /Eram_portfolio/, so the base path must be folded
+// into the origin — otherwise every absolute URL we emit (canonical, OpenGraph
+// image, sitemap) points at the bare domain and 404s for scrapers. If a
+// custom domain is configured later, update the origin accordingly.
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const siteUrl = `https://maherukhislam.github.io${basePath}`;
 
 const inter = Inter({
   variable: "--font-inter",
@@ -37,13 +38,41 @@ export const metadata: Metadata = {
     "Bangladesh",
   ],
   authors: [{ name: "Md. Eram Hossain Ratul" }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Md. Eram Hossain Ratul | Student Leader & Social Activist",
     description:
       "Student leader, club administrator and social activist based in Dhaka, Bangladesh.",
+    url: "/",
+    siteName: "Md. Eram Hossain Ratul",
+    locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: `${basePath}/hero-portrait.jpg`,
+        alt: "Portrait of Md. Eram Hossain Ratul under warm spotlight lighting",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Md. Eram Hossain Ratul | Student Leader & Social Activist",
+    description:
+      "Student leader, club administrator and social activist based in Dhaka, Bangladesh.",
     images: [`${basePath}/hero-portrait.jpg`],
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+// The hero opens on the dark stone backdrop, so the browser UI should match
+// it on mobile rather than flashing the light page background.
+export const viewport: Viewport = {
+  themeColor: "#0c0a09",
 };
 
 export default function RootLayout({

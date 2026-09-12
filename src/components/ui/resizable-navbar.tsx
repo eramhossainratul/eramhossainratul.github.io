@@ -157,7 +157,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative whitespace-nowrap px-3.5 py-2 text-[13px] text-stone-400 transition-colors duration-200 hover:text-amber-200"
+          className="relative whitespace-nowrap rounded-full px-3.5 py-2 text-[13px] text-stone-400 transition-colors duration-200 hover:text-amber-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
           key={`link-${idx}`}
           href={item.link}
         >
@@ -310,7 +310,7 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<"button">
 )) => {
   const baseStyles =
-    "px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.16em] relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-flex items-center justify-center text-center whitespace-nowrap";
+    "px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.16em] relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-flex items-center justify-center text-center whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-400";
 
   const variantStyles = {
     primary:

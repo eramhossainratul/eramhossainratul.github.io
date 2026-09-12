@@ -10,10 +10,17 @@ import { Connect } from "@/components/portfolio/connect";
 import { Footer } from "@/components/portfolio/footer";
 import { profile } from "@/lib/portfolio-data";
 
+// Absolute URLs (with the GitHub Pages project base path) so search engines
+// can associate the profile with its live origin and portrait image.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const siteUrl = `https://maherukhislam.github.io${basePath}`;
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: profile.name,
+  url: siteUrl,
+  image: `${siteUrl}/hero-portrait.jpg`,
   jobTitle: "General Secretary (Acting), Dhaka Commerce College Nature Study Club",
   description:
     "Student leader, club administrator and social activist based in Dhaka, Bangladesh.",
