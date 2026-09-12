@@ -1,4 +1,4 @@
-# Md. Eram Hossain Ratul — Personal Portfolio
+# Md. Eram Hossain Ratul's Personal Portfolio
 
 <p align="center">
   <img src="public/logo.svg" alt="Md. Eram Hossain Ratul Logo" width="100" height="100" />
