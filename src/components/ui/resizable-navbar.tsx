@@ -180,12 +180,11 @@ export const MobileNav = ({ children, className, visible, hidden }: MobileNavPro
       animate={{
         backdropFilter: visible && !hidden ? "blur(10px)" : "none",
         boxShadow: visible && !hidden
-          ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
+          ? "0 8px 28px -14px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.06)"
           : "none",
         width: visible ? "90%" : "100%",
         paddingRight: visible ? "12px" : "0px",
         paddingLeft: visible ? "12px" : "0px",
-        borderRadius: visible ? "4px" : "2rem",
         y: hidden ? -96 : visible ? 20 : 0,
         opacity: hidden ? 0 : 1,
         pointerEvents: hidden ? "none" : "auto",
@@ -194,6 +193,11 @@ export const MobileNav = ({ children, className, visible, hidden }: MobileNavPro
         type: "spring",
         stiffness: 200,
         damping: 50,
+      }}
+      style={{
+        // The mobile bar keeps soft capsule edges in every state (top, shrunk
+        // and collapsed) instead of squaring off like it used to.
+        borderRadius: "2rem",
       }}
       className={cn(
         "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent border border-transparent px-0 py-2 lg:hidden",
