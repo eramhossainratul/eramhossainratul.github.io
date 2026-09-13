@@ -263,7 +263,7 @@ export const achievements: AchievementItem[] = [
   },
   {
     title: "6th Place, Energy Talk Delegates Quiz",
-    organization: "Inter-college Competition",
+    organization: "Energy Talk 2025",
     detail:
       "Placed sixth among delegate teams in the Energy Talk quiz competition held on 30 June 2025.",
     year: "2025",
