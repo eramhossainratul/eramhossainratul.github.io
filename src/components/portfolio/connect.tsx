@@ -1,4 +1,14 @@
-import { MapPin, HandHeart, School, ArrowUp } from "lucide-react";
+import {
+  MapPin,
+  HandHeart,
+  School,
+  ArrowUp,
+  Mail,
+  Linkedin,
+  Facebook,
+  Instagram,
+  type LucideIcon,
+} from "lucide-react";
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
 import { Cover } from "@/components/ui/cover";
@@ -22,6 +32,12 @@ const connectCards = [
     text: "Dhaka Commerce College, at Nature Study Club and Rotaract events.",
   },
 ];
+
+const socialIcons: Record<string, LucideIcon> = {
+  LinkedIn: Linkedin,
+  Facebook,
+  Instagram,
+};
 
 export function Connect() {
   return (
@@ -68,6 +84,51 @@ export function Connect() {
             </Reveal>
           ))}
         </div>
+
+        {/* Contact strip: email CTA + social profiles */}
+        <Reveal delay={0.15}>
+          <div className="mt-12 flex flex-col items-center gap-6 rounded-2xl border bg-card p-7 text-center shadow-sm sm:p-9">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              Get in touch
+            </p>
+            <a
+              href={`mailto:${profile.email}`}
+              className="group inline-flex h-11 items-center gap-3 rounded-full bg-primary px-6 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-primary/85 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              aria-label={`Email ${profile.name}`}
+            >
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              {profile.email}
+            </a>
+            <div className="flex items-center gap-3">
+              {profile.socials.map((social) => {
+                const Icon = socialIcons[social.name];
+                return (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    title={social.name}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border bg-background text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  >
+                    {Icon ? <Icon className="h-4.5 w-4.5" aria-hidden="true" /> : null}
+                  </a>
+                );
+              })}
+            </div>
+            <p className="text-sm text-muted-foreground">
+              Prefer email? Reach me directly at{" "}
+              <a
+                href={`mailto:${profile.email}`}
+                className="font-medium text-foreground underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary"
+              >
+                {profile.email}
+              </a>
+              , or connect through the social links above.
+            </p>
+          </div>
+        </Reveal>
 
         <Reveal delay={0.2}>
           <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-2xl bg-gradient-to-br from-primary to-amber-800 p-7 text-primary-foreground shadow-md sm:flex-row sm:items-center sm:p-9">

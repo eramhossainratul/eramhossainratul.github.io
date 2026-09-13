@@ -2,6 +2,12 @@ export const profile = {
   name: "Md. Eram Hossain Ratul",
   firstName: "Eram",
   initials: "EHR",
+  email: "eramhossain914@gmail.com",
+  socials: [
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/md-eram-hossain-ratul-190880370" },
+    { name: "Facebook", url: "https://www.facebook.com/share/1B5isyzaU5/" },
+    { name: "Instagram", url: "https://www.instagram.com/eram_ratul07" },
+  ],
   roles: [
     "General Secretary (Acting)",
     "Chief Sergeant-at-Arms",
