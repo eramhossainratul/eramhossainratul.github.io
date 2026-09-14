@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://maherukhislam.github.io/Eram_portfolio/sitemap.xml
+Sitemap: https://eramhossainratul.github.io/sitemap.xml
